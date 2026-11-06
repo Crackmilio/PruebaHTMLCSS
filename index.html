@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+        <meta charset=""UTF-8">
+        <meta name=""viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Mi formulario de encuesta</title>
+
+        <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+        <h1>Mi primer encuesta</h1>
+        <p>Por favor, completa los siguientes datos</p>
+<form> 
+    <fieldset>
+        <legend>Datos personales</legend>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre>"
+
+      <label for="apellidoPaterno">Apellido Paterno:</label>
+        <input type="text" id="apellidoPaterno"
+
+        <label for="apellidoMaterno">Apellido Materno:</label>
+        <input type="text" id="apellidoMaterno">
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad">
+
+        <br><br>
+
+        <label>Genero:</label>
+
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        <label for="masculino">Masculino:</label>
+
+        <input type="radio" id="femenino" name="genero" value="femenino">
+        <label for="femenino">Femenino:</label>
+
+        <input type="radio" id="otro" name="genero" value="otro">
+        <label for="otro">Otro:</label>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+       <label for="correo">Correo electronico:</label>
+        <input type="email" id="correo">
+
+        <br><br>
+
+        <button type="button" id="enviar">Enviar informacion</button>
+
+    </fieldset>
+    <fieldset>
+        <legend>Hábitos tecnologicos</legend>
+
+        <p>¿Que dispositivo utilizas habitualmente?</p>
+
+        <input type="checkbox" id="celular" name="dispositivos" value="celular">
+       <label for="celular">Celular</label>
+
+        <br><br>
+
+        <input type="checkbox" id="computadora" name="dispositivos" value="computadora">
+        <label for="computadora">Computadora</label>
+
+        <br><br>
+
+        <input type="checkbox" id="tablet" name="dispositivos" value="tablet">
+        <label for="tablet">Tablet</label>
+
+        <br><br>
+
+        <input type="checkbox" id="consola" name="dispositivos" value="consola">
+        <label for="consola">Consola</label>
+        
+    </fieldset>
+    <fieldset>
+        <legend>Uso de tecnología</legend>
+
+        <p>¿Cuánto tiempo utilizas dispositivos electronicos al dia?</p>
+
+        <input type="radio" id="unaHora" name="tiempo" value="Una hora">
+        <label for="unaHora">Una hora</label>
+
+        <br><br>
+
+        <input type="radio" id="dosHoras" name="tiempo" value="Dos hora">
+        <label for="dosHoras">Dos horas</label>
+
+        <br><br>
+
+        <input type="radio" id="tresHoras" name="tiempo" value="Tres hora">
+        <label for="tresHoras">Tres Horas</label>
+
+        <br><br>
+
+        <input type="radio" id="masHoras" name="tiempo" value="Mas de tres horas">
+        <label for="masHoras">Mas de tres horas</label>
+    </fieldset>
+    <fieldset>
+        <legend>Comentarios finales</legend>
+
+        <label for="comentarios">¿Tienes alguna sugerencia o comentario?</label>
+
+        <textarea id="comentarios" name="comentarios" rows="5" cols="40" placeholder="Escribe tus comentarios aqui..."> </textarea>
+    </fieldset>
+</form>
+<script>
+   
+document.getElementById("enviar").addEventListener("click", function() {
+
+    let nombre = document.getElementById("nombre").value.trim();
+    let apellidoPaterno = document.getElementById("apellidoPaterno").value.trim();
+    let apellidoMaterno = document.getElementById("apellidoMaterno").value.trim();
+    let edad = document.getElementById("edad").value;
+    let correo = document.getElementById("correo").value.trim();
+
+    let genero = document.querySelector('input[name="genero"]:checked');
+    let dispositivos = document.querySelector('input[name="dispositivos"]:checked');
+    let tiempo = document.querySelector('input[name="tiempo"]:checked');
+
+    if (
+        nombre === "" || 
+        apellidoPaterno === "" || 
+        apellidoMaterno === "" || 
+        edad === "" || 
+        correo === ""||
+        genero === null ||
+        dispositivos.length === 0 ||
+        tiempo === null
+    ) {
+        alert("Por favor, completa todos los campos");
+    } else {
+        alert("¡Formulario enviado correctamente!");
+    }
+});
+</script>
+</body>
+</html> 
